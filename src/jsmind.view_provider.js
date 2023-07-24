@@ -185,10 +185,14 @@ export class ViewProvider {
             view_data.expander = d_e;
         }
         if (!!node.topic) {
+            const content = node.data.icon ? `
+                <img style="width: 30px; height: 30px; object-fit:contain; border-radius: 4px; vertical-align: middle;" src="${node.data.icon}" />
+                <span style="vertical-align: middle; display: inline-block;">${node.topic}</span>
+            ` : node.topic
             if (this.opts.support_html) {
-                $.h(d, node.topic);
+                $.h(d, content);
             } else {
-                $.t(d, node.topic);
+                $.t(d, content);
             }
         }
         d.setAttribute('nodeid', node.id);
