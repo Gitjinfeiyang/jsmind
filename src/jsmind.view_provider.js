@@ -174,6 +174,8 @@ export class ViewProvider {
         }
 
         var d = $.c('jmnode');
+        let content = '';
+        let popoverContainer = null;
         if (node.isroot) {
             d.className = 'root';
         } else {
@@ -185,20 +187,36 @@ export class ViewProvider {
             view_data.expander = d_e;
         }
         if (!!node.topic) {
-            const content = node.data.icon ? `
+            content = node.data.icon ? `
                 <img style="width: 30px; height: 30px; object-fit:contain; border-radius: 4px; vertical-align: middle;" src="${node.data.icon}" />
                 <span style="vertical-align: middle; display: inline-block;">${node.topic}</span>
             ` : node.topic
-            if (this.opts.support_html) {
-                $.h(d, content);
-            } else {
-                $.t(d, content);
-            }
         }
+
+        if (!!node.data.renderPopover) {
+            console.log(node.data.renderPopover)
+            content += `<div class="jsmind-popover-container"><div class="jsmind-popover">${node.data.renderPopover(node)}</div></div>`
+        }
+
+        if (this.opts.support_html) {
+            $.h(d, content);
+        } else {
+            $.t(d, content);
+        }
+
+        popoverContainer = d.querySelector('.jsmind-popover-container')
+        if (popoverContainer) {
+            d.addEventListener('mouseenter', () => {
+                popoverContainer.style.display = 'block'
+            })
+            d.addEventListener('mouseleave', () => {
+                popoverContainer.style.display = 'none'
+            })
+        }
+
         d.setAttribute('nodeid', node.id);
         d.style.visibility = 'hidden';
         this._reset_node_custom_style(d, node.data);
-
         parent_node.appendChild(d);
         view_data.element = d;
     }

@@ -70,7 +70,6 @@ jmexpander {
 
 .jmnode-overflow-hidden jmnode {
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 /* default theme */
@@ -405,4 +404,33 @@ jmnodes.theme-asbestos jmnode.root {
 jmnodes.theme-asbestos jmexpander {
 }
 jmnodes.theme-asbestos jmexpander:hover {
+}
+
+.jsmind-popover-container{
+    position: relative;
+    height: 100%;
+    display: none;
+}
+
+.jsmind-popover {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    background-color: #fff;
+    border: 4px;
+    color: #333;
+    box-shadow: 0 0 20px 1px #ccc;
+    z-index: 10;
+
+    ::after {
+        display: block;
+        content: '';
+        width: 10px;
+        height: 10px;
+        transform: rotateZ(45deg);
+        position: absolute;
+        bottom: -4px;
+        left: 20px;
+        background: #fff;
+    }
 }
