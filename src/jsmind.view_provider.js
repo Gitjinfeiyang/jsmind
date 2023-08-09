@@ -205,14 +205,29 @@ export class ViewProvider {
         }
 
         popoverContainer = d.querySelector('.jsmind-popover-container')
-        if (popoverContainer) {
-            d.addEventListener('mouseenter', () => {
+
+        // event
+        d.addEventListener('mouseenter', (e) => {
+            if (popoverContainer) {
                 popoverContainer.style.display = 'block'
-            })
-            d.addEventListener('mouseleave', () => {
+            }
+            if (this.opts.options.onMouseEnter) {
+                this.opts.options.onMouseEnter(e, node);
+            }
+        })
+        d.addEventListener('mouseleave', (e) => {
+            if (popoverContainer) {
                 popoverContainer.style.display = 'none'
-            })
-        }
+            }
+            if (this.opts.options.onMouseLeave) {
+                this.opts.options.onMouseEnter(e, node);
+            }
+        })
+        d.addEventListener('click', (e) => {
+            if (this.opts.options.onClick) {
+                this.opts.options.onClick(e, node);
+            }
+        })
 
         d.setAttribute('nodeid', node.id);
         d.style.visibility = 'hidden';

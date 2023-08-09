@@ -407,17 +407,20 @@ jmnodes.theme-asbestos jmexpander:hover {
 }
 
 .jsmind-popover-container{
-    position: relative;
-    height: 100%;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    height: 60px;
+    width: 100%;
     display: none;
 }
 
 .jsmind-popover {
     position: absolute;
-    bottom: 60px;
+    bottom: 100%;
     left: 0;
     background-color: #fff;
-    border: 4px;
+    border-radius: 4px;
     color: #333;
     box-shadow: 0 0 20px 1px #ccc;
     z-index: 10;
