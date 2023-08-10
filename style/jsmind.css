@@ -425,7 +425,7 @@ jmnodes.theme-asbestos jmexpander:hover {
     box-shadow: 0 0 20px 1px #ccc;
     z-index: 10;
 
-    ::after {
+    &::after {
         display: block;
         content: '';
         width: 10px;
