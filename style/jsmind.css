@@ -78,7 +78,6 @@ jmnode {
     background-color: #fff;
     color: #333;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px #666;
     font: 16px/1.125 Verdana, Arial, Helvetica, sans-serif;
 }
 jmnode:hover {
@@ -87,9 +86,8 @@ jmnode:hover {
     color: #333;
 }
 jmnode.selected {
-    background-color: #11f;
+    background-color: #fff6c8;
     color: #fff;
-    box-shadow: 2px 2px 8px #000;
 }
 jmnode.root {
     font-size: 24px;
@@ -256,15 +254,11 @@ jmnodes.theme-nephrite jmexpander:hover {
 
 /* belizehole theme */
 jmnodes.theme-belizehole jmnode {
-    background-color: #3498db;
-    color: #fff;
 }
 jmnodes.theme-belizehole jmnode:hover {
-    background-color: #2980b9;
+    background-color: #fff6c8;
 }
 jmnodes.theme-belizehole jmnode.selected {
-    background-color: #11f;
-    color: #fff;
 }
 jmnodes.theme-belizehole jmnode.root {
 }
